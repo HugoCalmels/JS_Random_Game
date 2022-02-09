@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *, *::after, *::before{
+      box-sizing: border-box;
+    }
+    :root { /* here we set env variables for the CSS */
+      --hue: 200;
+      --saturation: 50%;
+      --foreground-color: hsl(var(--hue), var(--saturation), 75%);
+      --background-color: hsl(var(--hue), var(--saturation), 20%);
+    }
+    body {
+      margin: 0;
+      background-color: var(--background-color);
+      overflow: hidden;  /* the ball was causing scrolls bars */
+    }
+
+    .paddle{
+
+      --position: 50; /* can change this variable in my JS, which will make update from the top position */
+      position: absolute;
+      background: var(--foreground-color);
+      top: calc(var(--position) * 1vh);
+      transform: translateY(-50%); /* the paddle center wasnt centered */
+      width: 1vh;
+      height: 10vh;
+    }
+    .paddle.left {
+      left: 1vw;
+    }
+
+    .paddle.right {
+      right: 1vw;
+    }
+    .score {
+      display: flex;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 7vh; /* vh on font size .. */
+      color: var(--foreground-color);
+    }
+
+    .score > * {
+      flex-grow: 1;
+      flex-basis: 0;
+      padding: 0 2vh; /* top&bottom, then right&left */
+      margin: 1vh 0;
+      opacity: .5;
+    }
+    .score > :first-child{
+      text-align:right;
+      border-right: .5vh solid var(--foreground-color);
+    }
+
+
+
+
+    .ball{
+      --x: 50;
+      --y: 50;
+      position: absolute;
+      left: calc(var(--x) * 1vw); /* vw pour unité responsive pour la taille, aka vWidth */
+      top: calc(var(--y) * 1vh); /* vh unité responsive pour la hauteur, aka vHeight*/
+      width: 2vh;
+      height: 2vh;
+      border-radius: 50%;
+      background-color: var(--foreground-color);
+      transform: translate(-50%, -50%);
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="score">
+    <div id="player-score">0</div>
+    <div id="computer-score">0</div>
+  </div>
+
+  <div class="ball" id="ball"></div>
+
+  <div class="paddle left" id="player-paddle"></div>
+  <div class="paddle right" id="computer-paddle"></div>
+  
+  <script type="module" src="script3.js"></script>
+
+
+</body>
+</html>

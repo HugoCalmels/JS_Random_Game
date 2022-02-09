@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  height:100%;
+}
+
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid black;
+  height: 60%;
+  width: 80%;
+  position: relative;
+  margin: auto; /* to center the element with a position of relative, but only on X-index */
+  
+}
+
+.human-player {
+  position: absolute;
+  top: 42%;
+  left: 0;
+  bottom: 0;
+  width: 2vh;
+  height: 10vh;
+  background-color: blue;
+
+}
+
+.robot-player {
+  position: absolute;
+  bottom: 42%;
+  right: 0;
+  width: 2vh;
+  height: 10vh;
+  background-color: red;
+}
+
+.values {
+  position: absolute;
+  left: 50%;
+  width: 300px;
+  height: 30px;
+  border: 1px solid black;
+}
+.ball-values {
+  position: absolute;
+  left: 50%;
+  top: 5%;
+  width: 300px;
+  height: 30px;
+  border: 1px solid black;
+}
+
+.ball {
+  position:absolute;
+  height: 3vh;
+  width: 3vh;
+  border-radius: 50%;
+  border: 1px solid black;
+  right: 1%;
+  bottom: 46%;
+  transform: translate(-50%, -50%);
+  display: block;
+  transition: all 5s;
+}
+
+.game-status {
+  position:absolute;
+  background-color: white;
+  border: 1px solid black;
+  left: 50%;
+  bottom: 42%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 100px;
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-family: 'Open Sans', sans-serif;
+
+}
